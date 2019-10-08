@@ -7,8 +7,6 @@ const Login = () => {
   return (
     <div>
       <ContentCenterPage>
-
-        {/* Login Form */}
         <LoginForm />
       </ContentCenterPage>
     </div>
