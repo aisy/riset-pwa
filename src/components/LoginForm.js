@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Form, Icon, Input, Button, Card, Checkbox } from 'antd';
 
 const LoginForm = (props) => {
@@ -53,9 +54,12 @@ const LoginForm = (props) => {
               valuePropName: 'checked',
               initialValue: true,
             })(<Checkbox>Remember me</Checkbox>)}
-            <a className="login-form-forgot" href="">
+            <Link
+              className="login-form-forgot"
+              to={"/forgot-password"}
+            >
               Forgot password
-            </a>
+            </Link>
             <Button
               type="primary"
               htmlType="submit"
@@ -69,11 +73,11 @@ const LoginForm = (props) => {
               <span>or</span>
             </div>
             <Button
-              type="primary"
+              type="default"
               htmlType="button"
               className={"login-form-button"}
               shape={"round"}
-              style={{ backgroundColor: "red", borderColor: "none" }}
+            // style={{ backgroundColor: "red", borderColor: "none" }}
             >
               Register
             </Button>
