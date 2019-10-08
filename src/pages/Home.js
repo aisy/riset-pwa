@@ -2,7 +2,6 @@ import React from 'react'
 
 import NavbarFixed from '../components/NavbarFixed'
 import ContentPage from '../components/ContentPage'
-import LoginForm from '../components/LoginForm'
 
 const Home = () => {
   return (
@@ -10,8 +9,6 @@ const Home = () => {
       <NavbarFixed />
       <ContentPage>
 
-        {/* Login Form */}
-        <LoginForm />
       </ContentPage>
     </div>
   )
