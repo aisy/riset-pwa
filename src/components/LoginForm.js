@@ -1,10 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, Redirect } from 'react-router-dom'
 import { Form, Icon, Input, Button, Card, Checkbox } from 'antd';
 
 const LoginForm = (props) => {
 
   const { getFieldDecorator } = props.form;
+  const [toHome, getToHome] = useState(false);
 
   let handleSubmit = e => {
     e.preventDefault();
@@ -13,13 +14,16 @@ const LoginForm = (props) => {
         // console.log('Received values of form: ', values);
         console.log(values.username)
         console.log(values.password)
+
+        getToHome(true)
       }
     });
   };
 
   return (
+    <div id={"loginForm"} >
+      {toHome ? <Redirect to={"/home"} /> : null}
 
-    <div id={"loginForm"}>
       <Card className={"card-login"}>
         <div className={"title-login"}>
           Login
@@ -155,7 +159,7 @@ const LoginForm = (props) => {
           }
         `}
       </style>
-    </div>
+    </div >
   )
 }
 
