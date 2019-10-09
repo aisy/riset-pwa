@@ -53,10 +53,12 @@ const LoginForm = (props) => {
             }
           </Form.Item>
           <Form.Item>
-            {getFieldDecorator('remember', {
-              valuePropName: 'checked',
-              initialValue: true,
-            })(<Checkbox>Remember me</Checkbox>)}
+            {
+              getFieldDecorator('remember', {
+                valuePropName: 'checked',
+                initialValue: true,
+              })(<Checkbox>Remember me</Checkbox>)
+            }
             <Link
               className="login-form-forgot"
               to={"/forgot-password"}
@@ -75,15 +77,18 @@ const LoginForm = (props) => {
             <div className="strike">
               <span>or</span>
             </div>
-            <Button
-              type="default"
-              htmlType="button"
-              className={"login-form-button"}
-              shape={"round"}
-            // style={{ backgroundColor: "red", borderColor: "none" }}
-            >
-              Register
-            </Button>
+
+            <Link to={"/register"}>
+              <Button
+                type="default"
+                htmlType="button"
+                className={"login-form-button"}
+                shape={"round"}
+              // style={{ backgroundColor: "red", borderColor: "none" }}
+              >
+                Register
+              </Button>
+            </Link>
           </Form.Item>
         </Form>
 
