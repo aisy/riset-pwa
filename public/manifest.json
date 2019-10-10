@@ -1,5 +1,5 @@
 {
-  "short_name": "BRI",
+  "short_name": "PWA sample",
   "name": "Create React App Sample",
   "icons": [
     {
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#f57c00",
+  "theme_color": "#00267c",
   "background_color": "#ffffff"
 }
