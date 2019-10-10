@@ -22,6 +22,7 @@ const PageNotFound = () => {
             <img
               src={require('../assets/img/undraw_lost_bqr2.svg')}
               style={{ width: "100%" }}
+              alt=""
             />
           </div>
 
