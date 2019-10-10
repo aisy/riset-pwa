@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Drawer, Button } from 'antd'
 
+import SideBar from '../components/SideBar'
+
 const NavbarFixed = () => {
 
   const [DrawerVisible, setDrawerVisible] = useState(false)
@@ -25,6 +27,7 @@ const NavbarFixed = () => {
           />
         </div>
       </div>
+      <SideBar />
 
       <Drawer
         placement={"left"}
