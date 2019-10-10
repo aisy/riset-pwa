@@ -4,11 +4,11 @@ const Button = (props) => {
 
   const {
     text,
-    textColor,
+    // textColor,
     fontWeight,
-    backgroundColor,
+    // backgroundColor,
     gradient,
-    gradientColor,
+    // gradientColor,
     type
   } = props
 
@@ -19,7 +19,7 @@ const Button = (props) => {
 
       <button
         type={type ? type : "button"}
-        className={gradient == true ? "btn gradient-1" : "btn"}
+        className={gradient === true ? "btn gradient-1" : "btn"}
       // onClick={}
       >
         {text ? text : "Button"}
