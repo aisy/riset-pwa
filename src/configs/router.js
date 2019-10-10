@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 // Load components page
 import Login from '../pages/Login'
-import Home from '../pages/Home'
+import Home from '../pages/Home2'
 import PageNotFound from '../pages/PageNotFound'
 
 const Router = () => {
