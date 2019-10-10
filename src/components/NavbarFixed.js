@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Drawer, Button } from 'antd'
+import { Drawer, Button, Layout } from 'antd'
 
-import SideBar from '../components/SideBar'
+// import SideBar from '../components/SideBar'
 
 const NavbarFixed = () => {
 
@@ -27,7 +27,6 @@ const NavbarFixed = () => {
           />
         </div>
       </div>
-      <SideBar />
 
       <Drawer
         placement={"left"}
