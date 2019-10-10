@@ -1,42 +1,63 @@
 import React from 'react'
-import { Menu, Icon } from 'antd'
+import { Menu, Icon, Layout } from 'antd'
 
 const SideBar = () => {
+
+  const { Sider } = Layout;
+
   return (
     <>
-      <Menu
+      <Sider
+        width={280}
         className={"side-menu"}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
       >
-        <Menu.SubMenu
-          key="sub1"
-          title={
-            <span>
-              <Icon type="mail" />
-              <span>Navigation One</span>
-            </span>
-          }
-        >
-          <Menu.ItemGroup key="g1" title="Item 1">
-            <Menu.Item key="1">Option 1</Menu.Item>
-            <Menu.Item key="2">Option 2</Menu.Item>
-          </Menu.ItemGroup>
-          <Menu.ItemGroup key="g2" title="Item 2">
-            <Menu.Item key="3">Option 3</Menu.Item>
-            <Menu.Item key="4">Option 4</Menu.Item>
-          </Menu.ItemGroup>
-        </Menu.SubMenu>
-      </Menu>
-
+        <div className="logo" />
+        <div style={{ width: "100%", height: 20, padding: 30 }}>
+          <div style={{ backgroundColor: "white" }}></div>
+        </div>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+          <Menu.Item key="1">
+            <Icon type="user" />
+            <span className="nav-text">nav 1</span>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Icon type="video-camera" />
+            <span className="nav-text">nav 2</span>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <Icon type="upload" />
+            <span className="nav-text">nav 3</span>
+          </Menu.Item>
+          <Menu.Item key="4">
+            <Icon type="bar-chart" />
+            <span className="nav-text">nav 4</span>
+          </Menu.Item>
+          <Menu.Item key="5">
+            <Icon type="cloud-o" />
+            <span className="nav-text">nav 5</span>
+          </Menu.Item>
+          <Menu.Item key="6">
+            <Icon type="appstore-o" />
+            <span className="nav-text">nav 6</span>
+          </Menu.Item>
+          <Menu.Item key="7">
+            <Icon type="team" />
+            <span className="nav-text">nav 7</span>
+          </Menu.Item>
+          <Menu.Item key="8">
+            <Icon type="shop" />
+            <span className="nav-text">nav 8</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>
       <style jsx>
         {`
           .side-menu{
-            width: 256px;
-            margin-top: 40px; 
-            height: 100%;
             display: block;
+            overflow: auto;
+            height: 100vh;
+            position: fixed;
+            left: 0;
           }
 
           @media screen and (max-width: 991px) {
