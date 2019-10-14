@@ -37,7 +37,8 @@ const NavbarFixed = () => {
         <div className={"imageDrawer"}>
           <img
             width={"100%"}
-            src={"https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"} alt="lil" />
+            src={"https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"} alt="lil"
+          />
         </div>
         <p>Some contents...</p>
         <p>Some contents...</p>
