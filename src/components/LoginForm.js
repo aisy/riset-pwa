@@ -1,28 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import { Form, Icon, Input, Button, Card, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Card, Checkbox } from 'antd'
 
 const LoginForm = (props) => {
 
-  const { getFieldDecorator } = props.form;
-  const [toHome, getToHome] = useState(false);
+  const { getFieldDecorator } = props.form
+  const [toHome, getToHome] = useState(false)
+  const [isLogin, setIsLogin] = useState(false)
+
+  useEffect(() => {
+    let usernameFromStorage = localStorage.getItem("username")
+    let passwordFromStorage = localStorage.getItem("password")
+
+    if (usernameFromStorage != null && passwordFromStorage != null) {
+      setIsLogin(true)
+    }
+
+    console.warn(isLogin)
+  }, [])
 
   let handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
         // console.log('Received values of form: ', values);
-        console.log(values.username)
-        console.log(values.password)
+        localStorage.setItem("username", values.username)
+        localStorage.setItem("password", values.password)
 
         getToHome(true)
       }
     });
   };
 
+  const clearLocalStorage = () => {
+    // localStorage.removeItem("username")
+    // localStorage.removeItem("password")
+    localStorage.clear()
+  }
+
   return (
     <div id={"loginForm"} >
-      {toHome ? <Redirect to={"/home"} /> : null}
+      {toHome ? <Redirect to={"/Home"} /> : null}
+      {isLogin === true ? <Redirect to={"/Home"} /> : null}
 
       <Card className={"card-login"}>
         <div className={"title-login"}>
@@ -59,15 +78,15 @@ const LoginForm = (props) => {
           <Form.Item>
             {
               getFieldDecorator('remember', {
-                valuePropName: 'checked',
+                valuePropName: 'unchecked',
                 initialValue: true,
-              })(<Checkbox>Remember me</Checkbox>)
+              })(<Checkbox>Ingat saya</Checkbox>)
             }
             <Link
               className="login-form-forgot"
               to={"/forgot-password"}
             >
-              Forgot password
+              Lupa password
             </Link>
             <Button
               type="primary"
@@ -93,6 +112,16 @@ const LoginForm = (props) => {
                 Register
               </Button>
             </Link>
+            <Button
+              type="default"
+              htmlType="button"
+              className={"login-form-button"}
+              shape={"round"}
+              // style={{ backgroundColor: "red", borderColor: "none" }}
+              onClick={clearLocalStorage}
+            >
+              Clear localstorage
+            </Button>
           </Form.Item>
         </Form>
 
