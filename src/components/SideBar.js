@@ -1,9 +1,10 @@
 import React from 'react'
-import { Menu, Icon, Layout } from 'antd'
+import { Menu, Icon, Layout, Button, Avatar } from 'antd'
 
 const SideBar = () => {
 
   const { Sider } = Layout;
+  const { SubMenu } = Menu;
 
   return (
     <>
@@ -15,40 +16,67 @@ const SideBar = () => {
         <div style={{ width: "100%", height: 20, padding: 30 }}>
           <div style={{ backgroundColor: "white" }}></div>
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1">
-            <Icon type="user" />
-            <span className="nav-text">nav 1</span>
+            <Icon type="pie-chart" />
+            <span>Option 1</span>
           </Menu.Item>
           <Menu.Item key="2">
-            <Icon type="video-camera" />
-            <span className="nav-text">nav 2</span>
+            <Icon type="desktop" />
+            <span>Option 2</span>
           </Menu.Item>
-          <Menu.Item key="3">
-            <Icon type="upload" />
-            <span className="nav-text">nav 3</span>
-          </Menu.Item>
-          <Menu.Item key="4">
-            <Icon type="bar-chart" />
-            <span className="nav-text">nav 4</span>
-          </Menu.Item>
-          <Menu.Item key="5">
-            <Icon type="cloud-o" />
-            <span className="nav-text">nav 5</span>
-          </Menu.Item>
-          <Menu.Item key="6">
-            <Icon type="appstore-o" />
-            <span className="nav-text">nav 6</span>
-          </Menu.Item>
-          <Menu.Item key="7">
-            <Icon type="team" />
-            <span className="nav-text">nav 7</span>
-          </Menu.Item>
-          <Menu.Item key="8">
-            <Icon type="shop" />
-            <span className="nav-text">nav 8</span>
+          <SubMenu
+            key="sub1"
+            title={
+              <span>
+                <Icon type="user" />
+                <span>User</span>
+              </span>
+            }
+          >
+            <Menu.Item key="3">Tom</Menu.Item>
+            <Menu.Item key="4">Bill</Menu.Item>
+            <Menu.Item key="5">Alex</Menu.Item>
+          </SubMenu>
+          <SubMenu
+            key="sub2"
+            title={
+              <span>
+                <Icon type="team" />
+                <span>Team</span>
+              </span>
+            }
+          >
+            <Menu.Item key="6">Team 1</Menu.Item>
+            <Menu.Item key="8">Team 2</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="9">
+            <Icon type="file" />
+            <span>File</span>
           </Menu.Item>
         </Menu>
+
+        <div className={"bottom-content"}>
+          <Menu theme="dark" style={{ width: 280 }} mode="vertical">
+            <SubMenu
+              key="sub1"
+              title={
+                <span>
+                  <Avatar>U</Avatar> <span>{localStorage.getItem("username")}</span>
+                </span>
+              }
+            >
+              <Menu.ItemGroup title="Item 1">
+                <Menu.Item key="1">Option 1</Menu.Item>
+                <Menu.Item key="2">Option 2</Menu.Item>
+              </Menu.ItemGroup>
+              <Menu.ItemGroup title="Iteom 2">
+                <Menu.Item key="3">Option 3</Menu.Item>
+                <Menu.Item key="4">Option 4</Menu.Item>
+              </Menu.ItemGroup>
+            </SubMenu>
+          </Menu>
+        </div>
       </Sider>
       <style jsx>
         {`
@@ -59,16 +87,32 @@ const SideBar = () => {
             position: fixed;
             left: 0;
           }
+          li .ant-menu-item{
+            padding-left: 60px !important;
+          }
+          .bottom-content{
+            bottom:0;
+            position: absolute;
+            padding-bottom: 20px;
+          }
+          .avatar-user .anticon .anticon-user{
+            margin-right: 0px;
+          }
 
           @media screen and (max-width: 991px) {
             
           }
           @media screen and (max-width: 767px) {
-          
+            .side-menu{
+              display: none;
+            }
           }
           @media screen and (max-width: 479px) {
             .side-menu{
               display: none;
+            }
+            li .ant-menu-item{
+              padding-left: 0px !important;
             }
           }
         `}
