@@ -68,7 +68,7 @@ const SideBar = () => {
                 <span>File</span>
               </Menu.Item>
               <SubMenu
-                key="sub1"
+                key="sub11"
                 title={
                   <span>
                     <Avatar>U</Avatar> <span>{localStorage.getItem("username")}</span>
