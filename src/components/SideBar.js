@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
-import { Menu, Icon, Layout, Button, Avatar } from 'antd';
-import LoginContext, { LoginConsumer } from '../context/LoginContext';
+import React from 'react';
+import { Menu, Icon, Layout, Avatar } from 'antd';
+import { LoginConsumer } from '../context/LoginContext';
 
 const SideBar = () => {
 
