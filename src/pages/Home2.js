@@ -9,6 +9,7 @@ import {
   Col,
 } from 'antd';
 
+import { LoginProvider } from '../context/LoginContext'
 import SideBar from '../components/SideBar';
 import NavbarFIxed from '../components/NavbarFixed2';
 
@@ -17,6 +18,8 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { Content, Footer } = Layout;
+
+  const dataLogin = { name: localStorage.getItem("username"), loggedIn: true }
 
   const getDataAPI = async () => {
     try {
@@ -35,7 +38,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
+    <LoginProvider value={dataLogin} >
       <Layout>
         <SideBar />
         <Layout className={"layout-home"}>
@@ -111,7 +114,7 @@ const Home = () => {
           `}
         </style>
       </Layout>
-    </div>
+    </LoginProvider>
   )
 }
 
