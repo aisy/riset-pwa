@@ -71,7 +71,7 @@ const SideBar = () => {
                 key="sub11"
                 title={
                   <span>
-                    <Avatar>U</Avatar> <span>{localStorage.getItem("username")}</span>
+                    <Avatar>U</Avatar> <span>{props.name}</span>
                   </span>
                 }
               >
