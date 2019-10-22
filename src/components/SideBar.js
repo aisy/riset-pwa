@@ -1,10 +1,21 @@
-import React from 'react'
-import { Menu, Icon, Layout, Button, Avatar } from 'antd'
+import React, { useState, useContext } from 'react';
+import { Menu, Icon, Layout, Button, Avatar } from 'antd';
+import LoginContext from '../context/LoginContext';
 
 const SideBar = () => {
 
   const { Sider } = Layout;
   const { SubMenu } = Menu;
+
+  const dataLogin = useContext(LoginContext);
+
+  console.log(dataLogin);
+
+  const logout = () => {
+    // localStorage.removeItem("username")
+    // localStorage.removeItem("password")
+    localStorage.clear()
+  }
 
   return (
     <>
@@ -16,14 +27,14 @@ const SideBar = () => {
         <div style={{ width: "100%", height: 20, padding: 30 }}>
           <div style={{ backgroundColor: "white" }}></div>
         </div>
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+        <Menu theme="dark" defaultSelectedKeys={['1']} mode="vertical">
           <Menu.Item key="1">
-            <Icon type="pie-chart" />
-            <span>Option 1</span>
+            <Icon type="home" />
+            <span>Home</span>
           </Menu.Item>
           <Menu.Item key="2">
             <Icon type="desktop" />
-            <span>Option 2</span>
+            <span>Products</span>
           </Menu.Item>
           <SubMenu
             key="sub1"
@@ -54,29 +65,25 @@ const SideBar = () => {
             <Icon type="file" />
             <span>File</span>
           </Menu.Item>
+          <SubMenu
+            key="sub1"
+            title={
+              <span>
+                <Avatar>U</Avatar> <span>{localStorage.getItem("username")}</span>
+              </span>
+            }
+          >
+            <Menu.ItemGroup title="Item 1">
+              <Menu.Item key="1">Option 1</Menu.Item>
+              <Menu.Item key="2">Option 2</Menu.Item>
+            </Menu.ItemGroup>
+            <Menu.Item key="5" onClick={logout}>
+              Logout
+              </Menu.Item>
+          </SubMenu>
         </Menu>
 
-        <div className={"bottom-content"}>
-          <Menu theme="dark" style={{ width: 280 }} mode="vertical">
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Avatar>U</Avatar> <span>{localStorage.getItem("username")}</span>
-                </span>
-              }
-            >
-              <Menu.ItemGroup title="Item 1">
-                <Menu.Item key="1">Option 1</Menu.Item>
-                <Menu.Item key="2">Option 2</Menu.Item>
-              </Menu.ItemGroup>
-              <Menu.ItemGroup title="Iteom 2">
-                <Menu.Item key="3">Option 3</Menu.Item>
-                <Menu.Item key="4">Option 4</Menu.Item>
-              </Menu.ItemGroup>
-            </SubMenu>
-          </Menu>
-        </div>
+
       </Sider>
       <style jsx>
         {`
