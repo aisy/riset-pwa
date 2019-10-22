@@ -51,11 +51,12 @@ const Home = () => {
             <div style={{ textAlign: 'center' }}>
               <Row gutter={16}>
                 {
-                  data.map((result) => (
+                  data.map((result, key) => (
                     <Col
                       lg={{ span: 6, offset: 0 }}
                       md={{ span: 12, offset: 0 }}
                       sm={{ span: 40, offset: 0 }}
+                      key={key}
                     >
                       <Card
                         style={{ marginTop: 16 }}
