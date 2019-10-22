@@ -5,6 +5,7 @@ import { Form, Icon, Input, Button, Card, Checkbox } from 'antd'
 const LoginForm = (props) => {
 
   const { getFieldDecorator } = props.form
+
   const [toHome, getToHome] = useState(false)
   const [isLogin, setIsLogin] = useState(false)
 
@@ -31,12 +32,6 @@ const LoginForm = (props) => {
       }
     });
   };
-
-  const clearLocalStorage = () => {
-    // localStorage.removeItem("username")
-    // localStorage.removeItem("password")
-    localStorage.clear()
-  }
 
   return (
     <div id={"loginForm"} >
@@ -112,16 +107,6 @@ const LoginForm = (props) => {
                 Register
               </Button>
             </Link>
-            <Button
-              type="default"
-              htmlType="button"
-              className={"login-form-button"}
-              shape={"round"}
-              // style={{ backgroundColor: "red", borderColor: "none" }}
-              onClick={clearLocalStorage}
-            >
-              Clear localstorage
-            </Button>
           </Form.Item>
         </Form>
 
