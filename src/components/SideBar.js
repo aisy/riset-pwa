@@ -8,6 +8,7 @@ const SideBar = () => {
   const { SubMenu } = Menu;
 
   const dataLogin = useContext(LoginContext);
+  const username = dataLogin.name;
 
   console.log(dataLogin);
 
@@ -69,7 +70,12 @@ const SideBar = () => {
             key="sub11"
             title={
               <span>
-                <Avatar>U</Avatar> <span>{dataLogin.name}</span>
+                <Avatar
+                  size={"small"}
+                  style={{ backgroundColor: '#1890ff' }}
+                >
+                  {username.charAt(0).toUpperCase()}
+                </Avatar>   Username
               </span>
             }
           >
